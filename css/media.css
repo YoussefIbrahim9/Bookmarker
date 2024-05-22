@@ -1,0 +1,12 @@
+
+@media (max-width:460px) {
+    section.web-body h2{
+        font-size: 17px;
+    }
+
+    footer table thead tr th{
+        font-size: 10px !important;
+    }
+
+    
+}
