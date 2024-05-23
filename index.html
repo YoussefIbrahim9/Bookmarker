@@ -37,7 +37,7 @@
 
     </head>
 
-    <body>
+    <body class="position-relative">
 
         <div class="container overflow-hidden my-5">
 
@@ -73,6 +73,7 @@
 
 
             <footer>
+
                 <table class="d-flex flex-column text-center">
                 
                     <thead class="w-100">
@@ -91,6 +92,52 @@
                 
                     
                 </table>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content bg-color">
+                        <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container d-flex align-items-center flex-column my-4 overflow-hidden">
+
+                                <div class="form w-100 d-flex flex-column">
+
+                                    <div class="site-input d-flex flex-column mb-4">
+                                        <label class="mb-2 fw-bold" for="oldSiteName"> Old site Name:</label>
+                                        <input class="form-control"  type="text" name="oldSiteName" id="oldSiteName" placeholder=" Old bookmark name">
+                                    </div>
+            
+                                    <div class="site-input d-flex flex-column mb-4">
+                                        <label class="mb-2 fw-bold" for="newSiteName"> New site Name:</label>
+                                        <input class="form-control"  type="text" name="newSiteName" id="newSiteName" placeholder=" *New bookmark name">
+                                    </div>
+                
+                                    <hr>
+                                    <div class="stie-url d-flex flex-column mb-1">
+                                        <label class="mb-2 fw-bold" for="oldSiteUrl"> Old site URL:</label>
+                                        <input  class="form-control" type="text" name="oldSiteUrl" id="oldSiteUrl" placeholder=" Old website URL">
+                                    </div>
+
+                                    <div class="stie-url d-flex flex-column mb-1">
+                                        <label class="mb-2 fw-bold" for="newSiteUrl"> New site URL:</label>
+                                        <input  class="form-control" type="text" name="newSiteUrl" id="newSiteUrl" placeholder=" *New website URL">
+                                    </div>
+            
+                                </div>
+            
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        <button type="button" onclick="editSite()" data-bs-dismiss="modal" class="btn btn-warning text-white">Save changes</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
 
             </footer>
 

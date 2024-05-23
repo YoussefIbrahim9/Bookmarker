@@ -7,6 +7,11 @@ body{
     background-color: var(--bck-ground);
 }
 
+.bg-color{
+
+    background-color: var(--bck-ground);
+}
+
 
 /* first-section */
 section.Header h1{
@@ -50,14 +55,19 @@ section.web-body h2{
     -webkit-text-fill-color: transparent;
 }
 
-section.web-body input:focus {
-    box-shadow: 0 0 0 0.25rem #fec26055;
-    color: #212529;
-    background-color: #fff;
-    border-color: #d99c39;
+input.form-control:focus
+{
+    box-shadow: 0 0 0 0.25rem #fec26055 !important;
+    color: #212529 !important;
+    background-color: #fff !important;
+    border-color: #d99c39 !important;
 }
+
 
 /* footer style */
 footer table thead tr th{
     height: 50px;
 }
+
+
+

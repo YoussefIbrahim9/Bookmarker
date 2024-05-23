@@ -8,5 +8,16 @@
         font-size: 10px !important;
     }
 
+    footer table tbody button{
+        font-size: 11px !important;
+    }
+
     
+}
+
+@media (max-width:355px){
+    footer table tbody button{
+        font-size: 8px !important;
+    }
+
 }
