@@ -1,13 +1,11 @@
 var siteName = document.getElementById("siteName");
 var siteUrl = document.getElementById("siteUrl");
 
-var oldSiteName = document.getElementById("oldSiteName");
-var oldSiteUrl = document.getElementById("oldSiteUrl");
-
-var newSiteName = document.getElementById("newSiteName");
-var newSiteUrl = document.getElementById("newSiteUrl");
+var sbmtBtn = document.getElementById("submt");
+var editBtn  = document.getElementById("edt");
 
 var inputList = [];
+var globalIndexForFunction;
 
 
 if(localStorage.length != 0){
@@ -38,43 +36,36 @@ function validation(element){
 }
 
 
+function openEditSite(indx){
+    globalIndexForFunction = indx;
+    siteName.value = inputList[indx].siteNickName;
+    siteUrl.value = inputList[indx].siteURL;
 
+    sbmtBtn.classList.add("invisible");
+    editBtn.classList.remove("d-none");
+}
 
 function editSite(){
-    var obj = {
-        oldsitename: oldSiteName.value,
-        oldsiturl: oldSiteUrl.value,
-        newsitename: newSiteName.value,
-        newsiteurl: newSiteUrl.value
-    }
+
+    if(siteName.classList.contains("is-valid") && siteUrl.classList.contains("is-valid")){
     
-    for(var i = 0; i < inputList.length ;i++)
-        {
-            if(inputList[i].siteNickName == obj.oldsitename && inputList[i].siteURL == obj.oldsiturl ){
+        inputList[globalIndexForFunction].siteNickName = siteName.value;
+        console.log( inputList[globalIndexForFunction].siteNickName);
+        inputList[globalIndexForFunction].siteURL = siteUrl.value;
 
-                inputList[i].siteNickName = obj.newsitename;
-                inputList[i].siteURL = obj.newsiteurl;
-                break
-            }
-            else if(inputList[i].siteNickName == obj.oldsitename){
-
-                inputList[i].siteNickName = obj.newsitename;
-                break
-            }
-            else if(inputList[i].siteURL == obj.oldsiturl){
-                inputList[i].siteURL = obj.newsiteurl;
-                break
-            }
-        }
-    oldSiteName.value = null;
-    oldSiteUrl.value = null;
-    newSiteName.value = null;
-    newSiteUrl.value = null;
-
-    localStorage.setItem("siteDetails", JSON.stringify(inputList))
-    displaySite();
-
+        localStorage.setItem("siteDetails", JSON.stringify(inputList));
+        clearSite();
+        displaySite();
+        sbmtBtn.classList.remove("invisible");
+        editBtn.classList.add("d-none");
+    }
+    else{
+        window.alert("Please update the info");
+    }
 }
+
+
+
 
 
 function deleteSite(indx){
@@ -103,7 +94,7 @@ function displaySite(){
         <td class="w-25 p-2 bg-white d-flex justify-content-center align-items-center">${inputList[i].siteNickName}</td>
         <td class="w-25 p-2 bg-white d-flex justify-content-center align-items-center "> <button class="btn btn-success "> <a target="_blank" href="${inputList[i].siteURL}" class="text-decoration-none text-white" > <i class="fa-solid fa-eye"></i> Visit</a> </button> </td>
         <td class="w-25 p-2 bg-white d-flex justify-content-center align-items-center"> <button onclick=" deleteSite(${i})" class="btn btn-danger">  <i class="fa-solid fa-trash"></i> Delete </button> </td>
-        <td class="w-25 p-2 bg-white d-flex justify-content-center align-items-center"> <button class="btn btn-warning text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">  <i class="fa-solid fa-pen-to-square"></i> Edit </button> </td>
+        <td class="w-25 p-2 bg-white d-flex justify-content-center align-items-center"> <button onclick="openEditSite(${i})" class="btn btn-warning text-white">  <i class="fa-solid fa-pen-to-square"></i> Edit </button> </td>
     </tr>` 
     }
     document.getElementById("contentShow").innerHTML = content;
@@ -118,10 +109,10 @@ function addSite(){
             siteURL : siteUrl.value
         }
         inputList.push(inputDetails);
-        localStorage.setItem("siteDetails", JSON.stringify(inputList))
+        localStorage.setItem("siteDetails", JSON.stringify(inputList));
         
-        clearSite()
-        displaySite()
+        clearSite();
+        displaySite();
     }
     else{
         window.alert("Please insert a valid input");

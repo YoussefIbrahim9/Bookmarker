@@ -51,7 +51,7 @@
 
                     <h2 class="mb-5"><i class="fa-solid fa-bookmark"></i> Bookmark your favorite sites <i class="fa-solid fa-bookmark"></i></h2>
 
-                    <div class="form w-100 d-flex flex-column">
+                    <div class="form w-100 d-flex flex-column position-relative">
 
                         <div class="site-input d-flex flex-column mb-4">
                             <label class="mb-2 fw-bold" for="siteName"><i class="fa-solid fa-book me-1"></i> Site Name:</label>
@@ -63,7 +63,8 @@
                             <input oninput="validation(this)"  class="form-control" type="text" name="webSiteUrl" id="siteUrl" placeholder="Website URL">
                         </div>
 
-                        <button onclick="addSite()" class="mt-4 mb-2 mx-auto btn btn-danger px-5" type="button"> Submit </button>
+                        <button onclick="addSite()" class="mt-4 mb-2 mx-auto btn btn-danger px-5" type="button" id="submt"> Submit </button>
+                        <button onclick="editSite()" class="mt-4 position-absolute bottom-0 start-50 translate-middle-x mb-2 mx-auto btn btn-warning text-white px-5 d-none" type="button" id="edt"> Edit </button>
 
                     </div>
 
@@ -93,51 +94,6 @@
                     
                 </table>
                 
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                    <div class="modal-content bg-color">
-                        <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="container d-flex align-items-center flex-column my-4 overflow-hidden">
-
-                                <div class="form w-100 d-flex flex-column">
-
-                                    <div class="site-input d-flex flex-column mb-4">
-                                        <label class="mb-2 fw-bold" for="oldSiteName"> Old site Name:</label>
-                                        <input class="form-control"  type="text" name="oldSiteName" id="oldSiteName" placeholder=" Old bookmark name">
-                                    </div>
-            
-                                    <div class="site-input d-flex flex-column mb-4">
-                                        <label class="mb-2 fw-bold" for="newSiteName"> New site Name:</label>
-                                        <input class="form-control"  type="text" name="newSiteName" id="newSiteName" placeholder=" *New bookmark name">
-                                    </div>
-                
-                                    <hr>
-                                    <div class="stie-url d-flex flex-column mb-1">
-                                        <label class="mb-2 fw-bold" for="oldSiteUrl"> Old site URL:</label>
-                                        <input  class="form-control" type="text" name="oldSiteUrl" id="oldSiteUrl" placeholder=" Old website URL">
-                                    </div>
-
-                                    <div class="stie-url d-flex flex-column mb-1">
-                                        <label class="mb-2 fw-bold" for="newSiteUrl"> New site URL:</label>
-                                        <input  class="form-control" type="text" name="newSiteUrl" id="newSiteUrl" placeholder=" *New website URL">
-                                    </div>
-            
-                                </div>
-            
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                        <button type="button" onclick="editSite()" data-bs-dismiss="modal" class="btn btn-warning text-white">Save changes</button>
-                        </div>
-                    </div>
-                    </div>
-                </div>
 
             </footer>
 
