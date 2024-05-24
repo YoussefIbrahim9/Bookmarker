@@ -55,12 +55,12 @@
 
                         <div class="site-input d-flex flex-column mb-4">
                             <label class="mb-2 fw-bold" for="siteName"><i class="fa-solid fa-book me-1"></i> Site Name:</label>
-                            <input class="form-control"  type="text" name="webSiteName" id="siteName" placeholder="Bookmark Name">
+                            <input oninput="validation(this)" class="form-control"  type="text" name="webSiteName" id="siteName" placeholder="Bookmark Name">
                         </div>
     
                         <div class="stie-url d-flex flex-column">
                             <label class="mb-2 fw-bold" for="siteUrl"><i class="fa-solid fa-paperclip me-1"></i> Site URL:</label>
-                            <input  class="form-control" type="text" name="webSiteUrl" id="siteUrl" placeholder="Website URL">
+                            <input oninput="validation(this)"  class="form-control" type="text" name="webSiteUrl" id="siteUrl" placeholder="Website URL">
                         </div>
 
                         <button onclick="addSite()" class="mt-4 mb-2 mx-auto btn btn-danger px-5" type="button"> Submit </button>
